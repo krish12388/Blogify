@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogify</title>
+    <%- include('../partials/Head.ejs') %> 
 </head>
 <body>
+    <%- include ("../partials/nav.ejs") %> 
     <h1>Blogify</h1>
-</body>
+    <p>Welcome <%= user.UserName %> </p>
+    
+  </body>
+  <%- include('../partials/scripts.ejs') %>
 </html>

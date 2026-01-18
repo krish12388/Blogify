@@ -12,6 +12,7 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "dot": "^1.1.3",
     "ejs": "^4.0.1",
     "env": "^0.0.2",
