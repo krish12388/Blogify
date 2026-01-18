@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../partials/Head.ejs') %> 
-</head>
-<body>
-    <%- include ("../partials/nav.ejs") %> 
-    <h1>Blogify</h1>
-    <p>Welcome <%= user.UserName %> </p>
-    
+  <head>
+    <%- include('../partials/Head.ejs') %>
+  </head>
+  <body>
+    <%- include ("../partials/nav.ejs") %>
+
+    <main class="main-content">
+      <div class="container hero">
+        <h1>Welcome to Blogify</h1>
+        <p>Your space to share stories, ideas, and expertise with the world.</p>
+      </div>
+    </main>
+
+    <%- include('../partials/scripts.ejs') %>
   </body>
-  <%- include('../partials/scripts.ejs') %>
 </html>

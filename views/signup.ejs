@@ -5,15 +5,55 @@
   </head>
   <body>
     <%- include ("../partials/nav.ejs") %>
-    <form action="/user/signup" method="POST" enctype="application/x-www-form-urlencoded">
-      <label for="UserName">Full Name</label>
-      <input type="text" name="UserName" />
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" />
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" />
-      <button type="submit">Signup</button>
-    </form>
+
+    <main class="main-content">
+      <div class="auth-container">
+        <h1 style="text-align: center; margin-bottom: 2rem">Create Account</h1>
+        <form
+          action="/user/signup"
+          method="POST"
+          enctype="application/x-www-form-urlencoded"
+        >
+          <div class="form-group">
+            <label for="UserName" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="UserName"
+              id="UserName"
+              placeholder="John Doe"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="john@example.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="password"
+              placeholder="Create a strong password"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <div style="text-align: center; margin-top: 1rem">
+          <p class="form-text">
+            Already have an account? <a href="/user/login">Log in</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/scripts.ejs') %>
   </body>
-  <%- include('../partials/scripts.ejs') %>
 </html>
