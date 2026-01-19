@@ -5,9 +5,9 @@ async function handleLogin(req, res) {
   if (!email || !password) {
     return res.status(400).json({ error: "All fields are required" });
   }
-  const existingUser = await user.findOne({ email: email });
+  const existingUser = await user.matchPassword(email,password);
   if (!existingUser) {
-    return res.redirect("/signup");
+    return res.redirect("/user/login");
   }
   req.user = existingUser;
   const token = generateToken(existingUser);
