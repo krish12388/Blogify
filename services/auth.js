@@ -6,7 +6,8 @@ dotenv.config({ path: '../.env' });
 function generateToken(user){
    const secret = process.env.JWT_SECRET;
 const payload = {
-    id:user._id,
+    name:user.UserName, 
+    _id:user._id,
     email:user.email,
     role:user.role
 }

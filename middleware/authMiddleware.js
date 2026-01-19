@@ -1,11 +1,13 @@
 const { verifyToken } = require("../services/auth");
 function checkAuth(req, res, next) {
    const tokenCookie = req.cookies?.uid;
-   if(!tokenCookie) return res.redirect("/user/login");
-   const user = verifyToken(tokenCookie);
-   if(!user) return res.redirect("/user/login");
-   req.user = user;
-   next();
+   if(!tokenCookie) return next();
+   try {
+    const payload = verifyToken(tokenCookie);
+   req.user = payload;
+   
+   } catch (error) {}
+   return next();
 }
 function restrictUser(roles){
   return (req,res,next)=>{

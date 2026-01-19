@@ -12,6 +12,6 @@ router.get("/login", (req, res) => {
   return res.render("login");
 });
 router.get("/logout", (req, res) => {
-  return res.render("login");
+  return res.clearCookie("uid").render("login");
 });
 module.exports = router;

@@ -1,11 +1,14 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const user = require("./modals/userModal");
 const dotenv = require("dotenv");
 const app = express();
 const userRoute = require("./routes/userRoute");
+const blogRoute = require("./routes/blogRoute");
 const cookieParser = require("cookie-parser");
-const {checkAuth} = require("./middleware/authMiddleware");
+const { checkAuth } = require("./middleware/authMiddleware");
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,11 +26,11 @@ mongoose
     console.log(err);
   });
 
-
 app.use("/user", userRoute);
-app.get("/",checkAuth, (req, res) => {
-  return res.render("home");
+app.get("/", checkAuth, (req, res) => {
+  return res.render("home", { user:req.user });
 });
+app.use("/add-blog", blogRoute);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

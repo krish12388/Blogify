@@ -16,24 +16,34 @@
       <li>
         <a class="nav-link" href="/">Home</a>
       </li>
-      <li>
-        <a class="nav-link" href="/blog/add">Add Blog</a>
-      </li>
+      <% if (locals.user) { %>
+       <li>
+          <a class="nav-link" href="/add-blog/add-new">Add Blog</a>
+        </li>
+        <li class="dropdown">
+          <a
+            class="nav-link"
+           href="/"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          <%= locals.user.name %> <span class="arrow">▼</span>
+          </a>
+          
+          
+            <li><a class="dropdown-item" href="/user/logout">Log Out</a></li>
+          
+        </li>
+      <% } else { %>
+       <li>
+          <a class="nav-link" href="/user/login">Login</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/user/signup">Sign Up</a>
+        </li>
+      <% } %>
 
-      <li class="dropdown">
-        <a
-          class="nav-link"
-         href="/user/logout"
-          role="button"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Krish Singh <span class="arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/user/logout">Log Out</a></li>
-        </ul>
-      </li>
     </ul>
     <!-- <div class="auth-buttons" style="display: none">
       <a href="/user/login" class="nav-link">Login</a>
@@ -44,5 +54,11 @@
         >Sign Up</a
       >
     </div> -->
-  </div>
-</nav>
+  </nav>
+  <% if (locals.error) { %>
+    <div class="container" style="background-color: red; opacity: 0.7; border: 1px solid red; border-radius: 10px; padding: 10px; margin-top: 10px; font-size: 20px; font-weight: bold; text-align: center; color: black;">
+         <div class="alert alert-danger" role="alert">
+           <%= locals.error %>
+         </div>
+        </div>
+        <% } %>
