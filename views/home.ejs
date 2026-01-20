@@ -8,8 +8,9 @@
 
     <main class="main-content">
       <div class="container hero">
-        <h1>Hello <%= locals.user.name %></h1>
+        
         <% if (locals.user) { %>
+           <h1>Hello <%= locals.user.name %></h1>
           <% if (locals.allBlogs.length > 0) { %>
            <h1>My Blogs</h1>
            <div style="display: flex; justify-content:flex-start; flex-direction: row;flex-wrap: wrap;">
@@ -28,6 +29,7 @@
            </div>
            <% } %>
            <% } else { %>
+            <h1>Hello</h1>
             <h1>Welcome to Blogify</h1>
             <p>Your space to share stories, ideas, and expertise with the world.</p>
         <% } %>
