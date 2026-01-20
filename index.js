@@ -19,7 +19,7 @@ app.set("views", path.resolve(__dirname, "views"));
 dotenv.config({ path: "./.env" });
 
 mongoose
-  .connect("mongodb://localhost:27017/blogify")
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Database connected");
   })
