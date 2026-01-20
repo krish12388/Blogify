@@ -8,6 +8,7 @@ const userRoute = require("./routes/userRoute");
 const blogRoute = require("./routes/blogRoute");
 const cookieParser = require("cookie-parser");
 const { checkAuth } = require("./middleware/authMiddleware");
+const Blog = require("./modals/blogModal");
 
 app.use(cookieParser());
 app.use(express.json());
@@ -27,10 +28,11 @@ mongoose
   });
 
 app.use("/user", userRoute);
-app.get("/", checkAuth, (req, res) => {
-  return res.render("home", { user:req.user });
+app.get("/", checkAuth, async (req, res) => {
+  const allBlogs = await Blog.find({});
+  return res.render("home", { user: req.user, allBlogs });
 });
-app.use("/add-blog", blogRoute);
+app.use("/blog", checkAuth, blogRoute);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

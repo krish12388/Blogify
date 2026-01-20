@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/Head.ejs') %>
+  </head>
+  <body>
+    <%- include ("../partials/nav.ejs") %>
+    <main class="main-content container">
+      <div class="blog-container">
+        <h1>Title</h1>
+        <h2 style=" padding: 10px; border-radius: 10px; margin-bottom: 20px;"><%= blog.title %></h2>
+        <img src="/images/<%= blog.imageURL %>" height="500px" alt="">
+        <h1>Content</h1>
+        <p style="margin-bottom: 20px;  padding: 10px; border-radius: 10px;"><%= blog.content %></p>
+      </div>
+      <% if (locals.comments) { %>
+      <div class="comments-container">
+        <h1>Comments</h1>
+        <div class="comment">
+          <p style=" padding: 10px; border-radius: 10px; margin-bottom: 20px;"><%= blog.comments %></p>
+        </div>
+        <% } %>
+      </div>
+     <%- include('../partials/scripts.ejs') %>
+    </main>
+  </body>
+</html>

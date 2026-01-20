@@ -9,10 +9,28 @@
     <main class="main-content">
       <div class="container hero">
         <% if (locals.user) { %>
-        <h1>Hello <%= locals.user.name %></h1>
+          <% if (locals.allBlogs.length > 0) { %>
+            <h1>Hello <%= locals.user.name %></h1>
+           <h1>My Blogs</h1>
+           <div style="display: flex; justify-content:flex-start; flex-direction: row;flex-wrap: wrap;">
+           <% allBlogs.forEach(blog => { %>
+           <div class="card" style="width: 18rem; margin: 10px; overflow: hidden; border-radius: 10px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 10px;">
+            <img src="/images/<%= blog.imageURL %>" width="200px" height="200px" class="card-img-top" alt="">
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; flex-direction: row;">
+            <span style="font-size: 20px; font-weight: bold;"><%= blog.title %></span>
+            <span style="font-size: 16px;"><%= blog.content %></span>
+            </div>
+            <a class="btn btn-primary" href="/blog/<%= blog._id %>">Read More</a>
+           </div>
+           </div>
+           <% }) %>
+           </div>
+           <% } %>
+           <% } else { %>
+            <h1>Welcome to Blogify</h1>
+            <p>Your space to share stories, ideas, and expertise with the world.</p>
         <% } %>
-        <h1>Welcome to Blogify</h1>
-        <p>Your space to share stories, ideas, and expertise with the world.</p>
       </div>
     </main>
 

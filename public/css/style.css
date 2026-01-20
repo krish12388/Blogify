@@ -94,6 +94,7 @@ nav {
     var(--secondary-color)
   );
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   letter-spacing: -1px;
 }
@@ -170,6 +171,16 @@ nav {
 /* Forms */
 .auth-container {
   max-width: 400px;
+  margin: 2rem auto;
+  background-color: var(--background-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.blog-form-container {
+  max-width: 800px;
   margin: 2rem auto;
   background-color: var(--background-card);
   padding: 2rem;
