@@ -8,9 +8,9 @@
 
     <main class="main-content">
       <div class="container hero">
+        <h1>Hello <%= locals.user.name %></h1>
         <% if (locals.user) { %>
           <% if (locals.allBlogs.length > 0) { %>
-            <h1>Hello <%= locals.user.name %></h1>
            <h1>My Blogs</h1>
            <div style="display: flex; justify-content:flex-start; flex-direction: row;flex-wrap: wrap;">
            <% allBlogs.forEach(blog => { %>
